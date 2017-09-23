@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   def index
     @companies = Company.all
 
-    render json: @companies
+    render jsonapi: @companies
   end
 
   # GET /companies/1
@@ -46,6 +46,6 @@ class CompaniesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def company_params
-      params.fetch(:company, {})
+      ActiveModelSerializers::Deserialization.jsonapi_parse!(:company, {})
     end
 end
