@@ -1,11 +1,17 @@
 class CompaniesController < ApplicationController
+  include PaginationHelper
+
   before_action :set_company, only: [:show, :update, :destroy]
 
   # GET /companies
   def index
-    @companies = Company.all
+    if params[:page]
+      @companies = Company.page(params[:page][:number]).per(params[:page][:size])
+    else
+      @companies = Company.all
+    end
 
-    render jsonapi: @companies
+    render jsonapi: @companies, meta: meta_pagination(@companies)
   end
 
   # GET /companies/1
