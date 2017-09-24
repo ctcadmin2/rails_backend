@@ -5,11 +5,10 @@ class CompaniesController < ApplicationController
 
   # GET /companies
   def index
-    if params[:page]
-      @companies = Company.page(params[:page][:number]).per(params[:page][:size])
-    else
-      @companies = Company.all
-    end
+
+    q = Company.ransack({name_or_cif_cont: params[:filter]})
+
+    @companies = q.result(distinct: true).page(params[:page][:number]).per(params[:page][:size])
 
     render jsonapi: @companies, meta: meta_pagination(@companies)
   end
