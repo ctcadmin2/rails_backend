@@ -51,6 +51,6 @@ class CompaniesController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def company_params
-      ActiveModelSerializers::Deserialization.jsonapi_parse!(:company, {})
+      ActiveModelSerializers::Deserialization.jsonapi_parse(params, only: [:name, :registration, :cif, :address, :acc_eur, :acc_ron, :bank, :capital, :phone, :email, :contact, :country, :vies, :status])
     end
 end
