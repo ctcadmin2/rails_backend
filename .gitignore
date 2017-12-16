@@ -17,3 +17,6 @@
 
 # ignore ide files
 /.idea
+
+# ignore test coverage
+/coverage
