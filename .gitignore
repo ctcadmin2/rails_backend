@@ -20,3 +20,6 @@
 
 # ignore test coverage
 /coverage
+
+# env variables
+/config/environment_variables.yml

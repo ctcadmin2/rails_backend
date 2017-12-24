@@ -1,0 +1,9 @@
+development:
+  SECRET_KEY: ''
+  OPENAPI_KEY: ''
+production:
+  SECRET_KEY: ''
+  OPENAPI_KEY: ''
+test:
+  SECRET_KEY: ''
+  OPENAPI_KEY: ''
