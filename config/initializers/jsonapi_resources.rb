@@ -9,5 +9,4 @@ JSONAPI.configure do |config|
   config.top_level_meta_include_record_count = true
   config.top_level_meta_record_count_key = :item_count
   config.top_level_meta_include_page_count = true
-
 end
