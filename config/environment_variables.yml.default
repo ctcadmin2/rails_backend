@@ -1,9 +1,12 @@
 development:
   SECRET_KEY: ''
   OPENAPI_KEY: ''
+  VATLAYER_KEY: ''
 production:
   SECRET_KEY: ''
   OPENAPI_KEY: ''
+  VATLAYER_KEY: ''
 test:
   SECRET_KEY: ''
   OPENAPI_KEY: ''
+  VATLAYER_KEY: ''

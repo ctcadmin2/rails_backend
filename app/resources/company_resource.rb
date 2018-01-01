@@ -1,5 +1,9 @@
 class CompanyResource < BaseResource
-  attributes :name, :registration, :cif, :country, :email, :phone, :contact
+  attributes :name, :registration, :cif, :address,
+             :country, :email, :phone, :contact,
+             :acc_eur, :acc_ron, :bank, :capital, :vies, :status
+
+  paginator :paged
 
   filter :q, apply: ->(records, value, _options) {
     q = records.ransack(name_or_cif_cont: value[0])

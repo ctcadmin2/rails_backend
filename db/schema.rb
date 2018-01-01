@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171001103502) do
+ActiveRecord::Schema.define(version: 20171231162237) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "api_helpers", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "companies", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,6 +39,13 @@ ActiveRecord::Schema.define(version: 20171001103502) do
     t.string "country"
     t.boolean "vies", default: false
     t.boolean "status", default: true
+  end
+
+  create_table "countries", force: :cascade do |t|
+    t.string "name"
+    t.string "value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "vehicles", id: :serial, force: :cascade do |t|

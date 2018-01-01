@@ -1,6 +1,6 @@
 JSONAPI.configure do |config|
   # Pagination   :none, :offset, :paged, or a custom paginator name
-  config.default_paginator = :paged
+  config.default_paginator = :none
   config.default_page_size = 5
   config.maximum_page_size = 20
 

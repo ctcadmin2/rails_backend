@@ -16,11 +16,17 @@ gem 'puma', '~> 3.7'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 #gem 'rack-cors'
 
-# AMS
+# JSON API
 gem 'jsonapi-resources'
+gem 'jsonapi-utils', '~> 0.7.0'
 
 # Search
 gem 'ransack'
+
+gem 'countries'
+
+# REST client
+gem 'rest-client'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

@@ -1,12 +1,4 @@
 require 'rails_helper'
-# RSpec.configure do |config|
-#   config.before(:context) {
-#     @headers = {CONTENT_TYPE: 'application/vnd.api+json',
-#                Accept: 'application/vnd.api+json'}
-#
-#     Company.destroy_all
-#   }
-# end
 
 RSpec.describe 'Companies', type: :request do
   let(:headers) { { CONTENT_TYPE: 'application/vnd.api+json' } }
@@ -65,7 +57,7 @@ RSpec.describe 'Companies', type: :request do
       it 'Should get filtered list' do
         FactoryBot.create_list(:random_company, 50)
         company = FactoryBot.create(:company)
-        params = { filter: {name: company.name }}
+        params = { filter: {q: company.name }}
         get companies_path, params: params
         assert_response :success
         jdata = JSON.parse response.body
