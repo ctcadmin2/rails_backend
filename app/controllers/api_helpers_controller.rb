@@ -1,5 +1,6 @@
 class ApiHelpersController < ApplicationController
   include JSONAPI::Utils
+  before_action :authenticate_user
 
   def countries
     list = CountriesService.new
