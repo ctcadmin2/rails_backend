@@ -20,6 +20,7 @@ namespace :users do
       password: password,
       password_confirmation: password,
       admin: true,
+      active: true,
       first_name: first_name,
       last_name: last_name,
       ssn: ssn,
