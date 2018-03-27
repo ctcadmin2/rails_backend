@@ -9,4 +9,9 @@ class UserResource < BaseResource
   def self.creatable_fields(context)
     super - %i[active admin]
   end
+
+  def self.updatable_fields(context)
+    super - %i[password password_confirmation]
+  end
+
 end
