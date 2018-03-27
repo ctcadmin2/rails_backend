@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 20180127104133) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "api_helpers", force: :cascade do |t|
+  create_table "api_helpers", force: :cascade do |t| //TODO remove unused table
     t.string "name"
     t.string "value"
     t.datetime "created_at", null: false

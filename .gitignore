@@ -17,6 +17,8 @@
 
 # ignore ide files
 /.idea
+/.vscode
+/jsconfig.json
 
 # ignore test coverage
 /coverage
