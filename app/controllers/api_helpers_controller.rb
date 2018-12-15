@@ -1,27 +1,23 @@
+# controller for different api helper methods
+# countries return a list of countries for creating a
+# select input
+# openapi search for valid company info on openapi.ro
+# vies checks eu vat status and company info
 class ApiHelpersController < ApplicationController
-  include JSONAPI::Utils
   before_action :authenticate_user
 
   def countries
     list = CountriesService.new
-    jsonapi_render json: list.make_list, options: { resource: CountryResource, model: Country }
+    render json: list.make_list
   end
 
   def openapi
     response = OpenapiService.new(params)
-    if response.status
-      jsonapi_render json: response.hash, options: { resource: CompanyResource, model: Company }
-    else
-      jsonapi_render_errors json: response.hash
-    end
+    render json: response.hash
   end
 
   def vies
     response = ViesService.new(params)
-    if response.status
-      jsonapi_render json: response.hash, options: { resource: CompanyResource, model: Company }
-    else
-      jsonapi_render_errors json: response.hash
-    end
+    render json: response.hash
   end
 end

@@ -4,20 +4,19 @@ class CountriesService
   end
 
   def make_list
-    list = { data: [] }
+    list = []
 
     flatten = flatten_obj(@full_list)
     flatten.sort_by! { |hsh| hsh[:name] }
 
     flatten.each_with_index do |obj, i|
-      list[:data].push(make_hash(obj, i))
+      list.push(make_hash(obj))
     end
     list
   end
 
-  def make_hash(obj, index)
+  def make_hash(obj)
     {
-      id: index,
       name: obj[:name],
       value: obj[:value]
     }

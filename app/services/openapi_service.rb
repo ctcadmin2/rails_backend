@@ -36,7 +36,6 @@ class OpenapiService
     address = "#{parsed_response['adresa']}, #{parsed_response['cod_postal']}, #{parsed_response['judet']}"
     {
       data: {
-        id: parsed_response['cif'],
         name: parsed_response['denumire'].titleize,
         registration: parsed_response['numar_reg_com'],
         cif: parsed_response['cif'],
@@ -50,6 +49,13 @@ class OpenapiService
 
   def build_error(data)
     parsed_data = JSON.parse(data)['error']
-    [{ id: parsed_data['id'], title: parsed_data['description'], code: parsed_data['status'] }]
+    {
+      error:
+      {
+        id: parsed_data['id'],
+        title: parsed_data['description'],
+        code: parsed_data['status']
+      }
+    }
   end
 end

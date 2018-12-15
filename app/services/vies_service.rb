@@ -36,7 +36,6 @@ class ViesService
     address = parsed_response['company_address'].split("\n").join(', ').titleize
     {
       data: {
-        id: @cif,
         name: parsed_response['company_name'].titleize,
         cif: @cif,
         country: @country,

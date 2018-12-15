@@ -5,7 +5,7 @@
 #
 # movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 # Character.create(name: 'Luke', movie: movies.first)
-100.times do
+5.times do
   Company.create(
     name: Faker::Company.name,
     registration: Faker::Company.duns_number,
@@ -16,4 +16,26 @@
     contact: Faker::Name.name,
     country: Faker::Address.country_code
   )
+end
+
+10.times do
+  v = Vehicle.create(
+    vin: Faker::Vehicle.vin,
+    registration: Faker::Lorem.characters(7),
+    tipe: Faker::Vehicle.car_type,
+    active: Faker::Boolean.boolean(true_ratio = 0.7)
+  )
+  10.times do
+    CreditNote.create(
+      number: Faker::Number.number(10),
+      start: Faker::Address.city,
+      stop: Faker::Address.city,
+      week: Faker::Number.between(1, 56),
+      value: Faker::Commerce.price,
+      currency: Faker::Currency.code,
+      notes: Faker::Lorem.sentence(3),
+      paid: Faker::Boolean.boolean(true_ratio = 0.1),
+      vehicle_id: v.id
+    )
+  end
 end

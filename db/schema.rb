@@ -10,24 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180127104133) do
+ActiveRecord::Schema.define(version: 2018_12_10_185149) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "api_helpers", force: :cascade do |t| //TODO remove unused table
-    t.string "name"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "apihelpers", force: :cascade do |t|
-    t.string "name"
-    t.string "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "companies", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -48,11 +34,19 @@ ActiveRecord::Schema.define(version: 20180127104133) do
     t.boolean "status", default: true
   end
 
-  create_table "countries", force: :cascade do |t|
-    t.string "name"
-    t.string "value"
+  create_table "credit_notes", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "number"
+    t.string "start"
+    t.string "stop"
+    t.string "week"
+    t.decimal "value"
+    t.string "currency"
+    t.text "notes"
+    t.boolean "paid"
+    t.bigint "vehicle_id"
+    t.index ["vehicle_id"], name: "index_credit_notes_on_vehicle_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -68,13 +62,14 @@ ActiveRecord::Schema.define(version: 20180127104133) do
     t.boolean "active", default: false
   end
 
-  create_table "vehicles", id: :serial, force: :cascade do |t|
-    t.string "registration"
-    t.string "vin"
-    t.boolean "truck"
-    t.boolean "sold"
+  create_table "vehicles", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "vin"
+    t.string "registration"
+    t.string "tipe"
+    t.boolean "active"
   end
 
+  add_foreign_key "credit_notes", "vehicles"
 end

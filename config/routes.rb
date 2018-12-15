@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   post 'user_token' => 'user_token#create'
   jsonapi_resources :companies
   jsonapi_resources :users
+  jsonapi_resources :vehicles
+  jsonapi_resources :credit_notes
 
   get 'api_helpers/countries', to: 'api_helpers#countries'
   get 'api_helpers/openapi', to: 'api_helpers#openapi'
