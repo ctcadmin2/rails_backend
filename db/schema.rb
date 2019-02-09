@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_10_185149) do
+ActiveRecord::Schema.define(version: 2019_02_09_224859) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_185149) do
     t.datetime "updated_at", null: false
     t.string "number"
     t.string "start"
-    t.string "stop"
-    t.string "week"
+    t.string "end"
     t.decimal "value"
     t.string "currency"
     t.text "notes"
@@ -67,7 +66,7 @@ ActiveRecord::Schema.define(version: 2018_12_10_185149) do
     t.datetime "updated_at", null: false
     t.string "vin"
     t.string "registration"
-    t.string "tipe"
+    t.string "category"
     t.boolean "active"
   end
 

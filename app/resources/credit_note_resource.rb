@@ -1,6 +1,6 @@
 # definition of credit note resource
 class CreditNoteResource < BaseResource
-  attributes :number, :start, :stop, :week, :value, :currency, :paid, :notes
+  attributes :number, :start, :end, :value, :currency, :paid, :notes
 
   has_one :vehicle
 
