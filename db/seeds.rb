@@ -22,15 +22,14 @@ end
   v = Vehicle.create(
     vin: Faker::Vehicle.vin,
     registration: Faker::Lorem.characters(7),
-    tipe: Faker::Vehicle.car_type,
+    category: Faker::Vehicle.car_type,
     active: Faker::Boolean.boolean(true_ratio = 0.7)
   )
   10.times do
     CreditNote.create(
       number: Faker::Number.number(10),
       start: Faker::Address.city,
-      stop: Faker::Address.city,
-      week: Faker::Number.between(1, 56),
+      end: Faker::Address.city,
       value: Faker::Commerce.price,
       currency: Faker::Currency.code,
       notes: Faker::Lorem.sentence(3),
