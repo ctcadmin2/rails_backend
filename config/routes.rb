@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   jsonapi_resources :users
   jsonapi_resources :vehicles
   jsonapi_resources :credit_notes
+  jsonapi_resources :prefs
 
   get 'api_helpers/countries', to: 'api_helpers#countries'
   get 'api_helpers/openapi', to: 'api_helpers#openapi'

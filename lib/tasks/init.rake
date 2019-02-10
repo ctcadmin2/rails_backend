@@ -3,7 +3,13 @@ def ask(message)
   STDIN.gets.chomp
 end
 
-namespace :users do
+namespace :init do
+  desc 'Creates initial configuration'
+  task prefs: :environment do
+    # Create initial prefs
+    Pref.create!
+  end
+
   desc 'Creates an admin user'
   task admin: :environment do
     #Ask for credentials
@@ -27,7 +33,6 @@ namespace :users do
       lang: 'en'
     )
     user.save!
-
   end
 
 end
