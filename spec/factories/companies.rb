@@ -1,13 +1,13 @@
 FactoryBot.define do
   factory :company do
-    name 'test company'
-    registration 'j00/1111/1111'
-    cif '123456789'
-    address 'some address'
-    phone '123456789'
-    email 'office@email.org'
-    contact 'some name'
-    country 'RO'
+    name { 'test company' }
+    registration { 'j00/1111/1111' }
+    cif { '123456789' }
+    address { 'some address' }
+    phone { '123456789' }
+    email { 'office@email.org' }
+    contact { 'some name' }
+    country { 'RO' }
   end
 
   factory :random_company, class: Company do

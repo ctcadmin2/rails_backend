@@ -1,9 +1,10 @@
+# frozen_string_literal: true
+
 class Pref < ApplicationRecord
   include Storext.model
+
   # "settings" matches what we named the database column
-
   store_attributes :main do
-
     activities Array, default: ['to be removed']
     currencies Array, default: ['to be removed']
     paid_by Array, default: ['to be removed']
