@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_10_142623) do
+ActiveRecord::Schema.define(version: 2019_05_25_205541) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2019_02_10_142623) do
     t.string "vin"
     t.string "registration"
     t.string "category"
-    t.boolean "active"
+    t.boolean "sold", default: false
   end
 
   add_foreign_key "credit_notes", "vehicles"

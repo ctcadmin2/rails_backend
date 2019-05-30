@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # controller for different api helper methods
 # countries return a list of countries for creating a
 # select input

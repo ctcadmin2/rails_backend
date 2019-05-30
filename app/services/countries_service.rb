@@ -9,7 +9,7 @@ class CountriesService
     flatten = flatten_obj(@full_list)
     flatten.sort_by! { |hsh| hsh[:name] }
 
-    flatten.each_with_index do |obj, i|
+    flatten.each_with_index do |obj, _i|
       list.push(make_hash(obj))
     end
     list
