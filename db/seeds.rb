@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -23,7 +25,7 @@ end
     vin: Faker::Vehicle.vin,
     registration: Faker::Lorem.characters(7),
     category: Faker::Vehicle.car_type,
-    active: Faker::Boolean.boolean(true_ratio = 0.7)
+    sold: Faker::Boolean.boolean(true_ratio = 0.2)
   )
   10.times do
     CreditNote.create(
@@ -37,4 +39,8 @@ end
       vehicle_id: v.id
     )
   end
+end
+
+10.times do
+  FactoryBot.create :credit_invoice
 end

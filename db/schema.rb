@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_25_205541) do
+ActiveRecord::Schema.define(version: 2019_05_30_141849) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,20 @@ ActiveRecord::Schema.define(version: 2019_05_25_205541) do
     t.string "country"
     t.boolean "vies", default: false
     t.boolean "status", default: true
+  end
+
+  create_table "credit_invoices", force: :cascade do |t|
+    t.string "number"
+    t.date "date"
+    t.string "tax_rate"
+    t.decimal "net_value", precision: 8, scale: 2
+    t.decimal "tax_value", precision: 8, scale: 2
+    t.decimal "total_value", precision: 8, scale: 2
+    t.string "currency"
+    t.jsonb "contact_info", default: {}, null: false
+    t.jsonb "cnotes_id", default: {}, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "credit_notes", force: :cascade do |t|
