@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # definition of credit note resource
 class CreditNoteResource < BaseResource
   attributes :number, :start, :end, :value, :currency, :paid, :notes
@@ -12,6 +14,6 @@ class CreditNoteResource < BaseResource
   }
 
   def self.sortable_fields(context)
-    super + [:"vehicle.id"]
+    super + [:vehicle_id]
   end
 end
