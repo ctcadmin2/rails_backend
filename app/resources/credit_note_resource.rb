@@ -9,7 +9,7 @@ class CreditNoteResource < BaseResource
   paginator :paged
 
   filter :q, apply: lambda { |records, value, _options|
-    q = records.ransack(number_or_start_or_stop_or_notes_cont: value[0])
+    q = records.ransack(number_or_start_or_end_or_notes_cont: value[0])
     q.result.includes(:vehicle)
   }
 
