@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :company do
     name { 'test company' }
@@ -19,5 +21,14 @@ FactoryBot.define do
     email { Faker::Internet.email }
     contact { Faker::Name.name }
     country { Faker::Address.country_code }
+
+    factory :random_company_with_assoc do
+      transient do
+        credit_invoices_count { 10 }
+      end
+      after(:create) do |company, evaluator|
+        create_list(:credit_invoice_with_assoc, evaluator.credit_invoices_count, company: company)
+      end
+    end
   end
 end

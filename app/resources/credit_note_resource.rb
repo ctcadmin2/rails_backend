@@ -5,6 +5,7 @@ class CreditNoteResource < BaseResource
   attributes :number, :start, :end, :value, :currency, :paid, :notes
 
   has_one :vehicle
+  belongs_to :credit_invoice
 
   paginator :paged
 

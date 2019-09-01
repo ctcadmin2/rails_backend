@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 def ask(message)
   print message
   STDIN.gets.chomp
@@ -12,7 +14,7 @@ namespace :init do
 
   desc 'Creates an admin user'
   task admin: :environment do
-    #Ask for credentials
+    # Ask for credentials
     puts 'Please give admin credentials:'
     email = ask('Email: ')
     password = ask('Password (at least 8 chars): ')
@@ -30,9 +32,8 @@ namespace :init do
       first_name: first_name,
       last_name: last_name,
       ssn: ssn,
-      lang: 'en'
+      lang: 'en-us'
     )
     user.save!
   end
-
 end

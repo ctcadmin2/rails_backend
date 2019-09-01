@@ -3,7 +3,8 @@
 class CreditInvoiceResource < BaseResource
   attributes :number, :date, :total_value
 
-  # has_many :credit_notes
+  has_many :credit_notes
+  belongs_to :company
 
   paginator :paged
 

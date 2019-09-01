@@ -2,4 +2,5 @@
 
 class CreditInvoice < ApplicationRecord
   has_many :credit_notes
+  belongs_to :company
 end
