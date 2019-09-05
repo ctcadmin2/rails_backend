@@ -241,8 +241,8 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    storext (3.0.0)
-      activerecord (>= 4.0, < 6.0)
+    storext (3.1.0)
+      activerecord (>= 4.0, < 6.1)
       virtus
     thor (0.20.3)
     thread_safe (0.3.6)
