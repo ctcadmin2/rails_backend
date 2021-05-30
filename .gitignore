@@ -26,3 +26,6 @@
 
 # env variables
 /config/environment_variables.yml
+
+# key
+/config/master.key
